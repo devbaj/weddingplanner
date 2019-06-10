@@ -1,0 +1,23 @@
+@model weddingplanner.Models.Wedding
+
+<h1>@Model.Couple's Wedding</h1>
+<a href="/dashboard">Dashboard</a>
+<a href="/logout">Log Out</a>
+
+<h2>Date: @Model.Date</h2>
+
+<p>Guests:</p>
+@{
+  if (Model.Guests == null)
+  {
+    <p>No Guests Yet</p>
+  }
+  else
+  {
+    foreach (User g in Model.Guests)
+    {
+      <li>@g.FirstName @g.LastName</li>
+    }
+  }
+}
+<img src="@Model.Address">
